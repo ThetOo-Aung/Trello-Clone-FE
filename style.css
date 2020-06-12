@@ -134,8 +134,6 @@ body {
   overflow: auto;
 }
 .col-div {
-  display: flex;
-  flex-direction: column;
   margin-top: 7px;
   width: 275px;
   height: 100%;
@@ -167,7 +165,9 @@ body {
 }
 
 /* Add another card */
+
 .add-another-card {
+  width: 100%;
   font-size: 12px;
   padding: 12px;
   display: flex;
@@ -185,20 +185,35 @@ body {
 .col-lists{
   margin: 0 auto;
   width: 100%;
-}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
 .col-list {
-  margin: 7px auto;
+  display: flex;
+  flex-direction: column;
   width: 95%;
+  margin: 3px auto;
   padding: 6px 8px 2px;
-  z-index: 10;
   background-color: #fff;
   border-radius: 3px;
+  outline: 0;
+  border: 0px;
   box-shadow: 0 1px 0 rgba(9,30,66,.25);
   font-size: 14px;
   opacity: 0.8;
-  cursor: pointer;
 }
-
+.add-another-card {
+  outline: 0;
+  border: 0px;
+  background-color: transparent;
+  font-size: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .col-list-icons a *{
   color: black;
@@ -207,6 +222,31 @@ body {
   margin-right: 10px;
 }
 
+.to-add-list {
+  background-color: rgba(255, 255, 255, 0.281);
+  border: 1px solid transparent;
+}
+
+.add-another-list{
+  font-size: 14px;
+  padding: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+
+}
+.add-another-list a {
+  color: rgba(255, 236, 236, 0.897);
+  font-weight: bold;
+}
+
+.card-labels {
+  height: 8px;
+  width: 40px;
+  border-radius: 30px;
+}
 
 
 /* Modal Section */
@@ -294,6 +334,13 @@ body {
   height: 150px;
   border: 2px solid rgb(0, 183, 255);
 }
+.container-main-content div i {
+  margin-left: -28.45px;
+}
+
+.modal-description {
+  margin: 20px 0;
+}
 
 .textareahidden{
   display: flex;
@@ -301,7 +348,7 @@ body {
 }
 .small {
   display: flex;
-  margin: 15px 0;
+  margin: 5px 0 20px 0;
   align-items: center;
 
 }
@@ -320,6 +367,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 30px;
+  margin-top: 10px;
 }
 
 .container-sidebar {
@@ -365,3 +414,28 @@ body {
   background-color: rgba(0, 0, 0, 0.37);
   margin-bottom: 7px;
 }
+
+#checklists {
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: rgba(53, 53, 53, 0.918);
+  margin-left: 15px;
+  font-weight: 600;
+  letter-spacing: 1pt;
+}
+
+
+#checklists header {
+  margin-bottom: 10px;
+}
+
+.checklistItem {
+  margin-left: 35px;
+  margin-bottom: 20px;
+  padding: 5px 0px;
+}
+/* ================================================================================= */
+

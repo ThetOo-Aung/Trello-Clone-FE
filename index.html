@@ -58,16 +58,23 @@
       </div>
     </div>
 
-    <div class="trello-body">
-        <div class="col-div">
+    <div class="trello-body"></div>
+
+
+
+
+    <!--<div class="col-div">  
           <div class="col-content">
             <p>To-Do</p>
             <a href=""><i class="fas fa-ellipsis-h"></i></a>
           </div>
-          <!-- TO Add list here -->
+
+          
+          // TO Add list here 
           
           <div class="col-lists">
             <div class="col-list">
+              <span></span>
               <p>blah blah</p>
               <div class="col-list-icons">
                 <a href=""><i class="fas fa-bars"></i></a>
@@ -84,18 +91,18 @@
             </div>
           </div>
           
-          <!--  -->
-          <div class="add-another-card">
+         //
+          <button class="add-another-card">
             <a href=""><i class="fas fa-plus"></i>&nbsp; Add another card</a>
             <a href=""><i class="far fa-clone"></i></a>
-          </div>
+          </button>
         </div>
 
 
-        <!-- Another column -->
+        // Another column 
         <div class="col-div">  
           <div class="col-content">
-            <p>To-Do</p>
+            <p>Doing</p>
             <a href=""><i class="fas fa-ellipsis-h"></i></a>
           </div>
 
@@ -106,10 +113,10 @@
         </div>
 
 
-        <!-- Another column -->
+        // Another column 
         <div class="col-div">   
           <div class="col-content">
-            <p>To-Do</p>
+            <p>Done</p>
             <a href=""><i class="fas fa-ellipsis-h"></i></a>
           </div>
           <div class="add-another-card">
@@ -119,40 +126,47 @@
         </div>
 
 
-        <!-- Another column -->
-        <div class="col-div">  
-          <div class="col-content">
-            <p>To-Do</p>
-            <a href=""><i class="fas fa-ellipsis-h"></i></a>
+        // Another column 
+        <div class="col-div to-add-list">  
+          <div class="add-another-list">
+            <a href=""><i class="fas fa-plus"></i>&nbsp; Add another List</a>
           </div>
-          <div class="add-another-card">
-            <a href=""><i class="fas fa-plus"></i>&nbsp; Add another card</a>
-            <a href=""><i class="far fa-clone"></i></a>
-          </div>
-        </div>
-    </div>
+      </div> -->
+   
 
 
-    <!-- Modal Section
+    <!-- Modal Section -->
     <div class="bg-modal">
       <div class="modal-contents">
         <div class="container">
           <div class="header-desc">
             <div class="container-main-content">
-              <div><i class="far fa-credit-card"></i> &nbsp; Lorem, ipsum.</div>
+              <div><i class="far fa-credit-card"></i> &nbsp;&thinsp;Lorem, ipsum.</div>
               <div><p>in list Done!</p></div>
-              <div><i class="fas fa-stream"></i> &nbsp; Description</div>
-              <div style="width: 100%;" class="textareahidden"><textarea name="" id="" cols="45" rows="2"></textarea>
-                <div class="small"><input type="button" value="Save">
-                <i class="fas fa-times"></i></div>
+              <div class="modal-description"><i class="fas fa-stream"></i> &nbsp; Description</div>
+              <div style="width: 100%;" class="textareahidden"><textarea name="" id="" cols="45" rows="2" placeholder="Type the description for details"></textarea>
+                <div class="small">
+                  <input type="button" value="Save">
+                  <i class="fas fa-times"></i>
+                </div>
               </div>
               <div class="small1">
                 <span><i class="fas fa-list-ul"></i> &nbsp; Activity</span>
                 <a href="">Show Details</a>
               </div>
             </div>
+              <div id="checklists">
+                <!-- <header> <i class="far fa-check-circle"></i> &nbsp;&nbsp;&nbsp; TitleGiven</header>
+                <div>
+                  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                  <label for="vehicle1"> &nbsp;&nbsp; itemGiven</label>
+                </div> -->
+               
+
+              </div>
           </div>
 
+          
           <div class="container-sidebar">
 
             <div class="sidebar1">
@@ -189,16 +203,14 @@
               <a href="" class="sidebar-label"><i class="far fa-user"></i> &nbsp; Join</a>
               <a href="" class="sidebar-label"><i class="far fa-user"></i> &nbsp; Join</a>
             </div>
-
-
-          </div>
  
         </div>
         <span class="close"><i class="fas fa-times"></i></span>
-      </div> -->
+      </div> 
     </div>
   </section>
-
+  
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="app.js"></script>
 </body>
 </html>
