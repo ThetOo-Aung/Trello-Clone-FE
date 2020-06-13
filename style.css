@@ -222,9 +222,14 @@ body {
   margin-right: 10px;
 }
 
-.to-add-list {
+#to-add-list {
   background-color: rgba(255, 255, 255, 0.281);
-  border: 1px solid transparent;
+  border: transparent;
+}
+
+#to-add-list input {
+  border: 0;
+  outline: 0;
 }
 
 .add-another-list{
@@ -234,12 +239,35 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  
-
 }
+
 .add-another-list a {
   color: rgba(255, 236, 236, 0.897);
   font-weight: bold;
+}
+
+.add-another-list2 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 7px;
+  background-color: transparent;
+}
+.add-another-list2 input {
+  width: 90%;
+  margin: 10px auto;
+  background-color: white;
+  padding: 5px;
+  
+}
+.add-another-list2 button {
+  align-self: flex-start;
+  padding: 5px;
+  margin: 5px 5px 10px 15px;
+  outline: 0;
+  border: 0;
+  border-radius: 10px;
+
 }
 
 .card-labels {
@@ -321,7 +349,8 @@ body {
 }
 
 .container-main-content textarea{
-  padding: 20px;
+  padding-top: 10px;
+  padding-left: 15px;
   border: 1px solid transparent;
   font-size: 14px;
   width: 100%;
@@ -339,7 +368,7 @@ body {
 }
 
 .modal-description {
-  margin: 20px 0;
+  margin: 20px 0 10px;
 }
 
 .textareahidden{
@@ -421,21 +450,88 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  color: rgba(53, 53, 53, 0.918);
-  margin-left: 15px;
+  margin-left: 13px;
   font-weight: 600;
-  letter-spacing: 1pt;
+
 }
 
 
 #checklists header {
+  color: rgba(53, 53, 53, 0.767);
   margin-bottom: 10px;
 }
 
 .checklistItem {
-  margin-left: 35px;
+  color: rgb(51, 211, 51);
+  margin-left: 30px;
   margin-bottom: 20px;
   padding: 5px 0px;
 }
+
+
+.remove{
+  height: max-content;
+  display: block;
+
+}
+
+.add {
+  display: none;
+  height: max-content;
+}
+
+
+.show-menu {
+  position: absolute;
+  top: 130px;
+  left: 200px;
+  width: 275px;
+  display: none;
+  flex-direction: column;
+
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 3;
+  padding: 10px;
+  box-shadow: 2px 0px 5px 0px rgba(9,30,66,.25);
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: whitesmoke;
+}
+
+.row-div {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  flex-direction: row;
+  align-items: center;
+  
+}
+
+.sm-separator {
+  margin: 10px;
+  width: 95%;
+  height: 1px;
+  background-color: black;
+}
+.show-menu a{
+  font-weight: normal;
+  color: rgb(87, 72, 72);
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+
+
+
+
+
+
+
+
+/* .popUp{
+  display: none;
+
+} */
 /* ================================================================================= */
 
