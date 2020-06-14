@@ -68,7 +68,7 @@ const getCards = (cards) => {
     cardStr += `
             <div class="col-lists">
               <button class="col-list" onclick="cardClicked($(this).attr('card-id'))" card-id="${cards[i].id}">
-                  ${getLabel(cards[i].labels)}
+                  <div class="labelParent">${getLabel(cards[i].labels)}</div>
                   <div class="card-member">
                     <p>${cards[i].title}</p>
                     ${getMember(cards[i].members)}
@@ -114,7 +114,7 @@ const getCheckList = (checklists) => {
 }
 
 const getMember = (members) => {
-  console.log(members);
+  // console.log(members);
 
   var memberStr = "";
   if(members.length !== 0 ){
@@ -297,12 +297,47 @@ function cardClicked(cardId){
       document.getElementById('card-title').innerHTML = getCardName(card.title);
       document.getElementById('card-des').innerHTML = getDescription(card.description);
       document.getElementById('checklists').innerHTML = getCheckList(card.checklists);
+      document.getElementById('labelShow').innerHTML =  getlblName(card.labels);
+      document.getElementById('memShow').innerHTML = getmemberName(card.members);
   })
   	.catch(function (err) {
    		console.log(err);
   	});
 
 }
+function getlblName(lbl){
+  console.log(lbl);
+  var lblStr = "";
+  if(lbl.length !== 0){
+    document.getElementById('labelh4tag').style.display = "block";
+
+    for(let i = 0; i < lbl.length; i++){
+    lblStr += `
+   <input class="lblEdit" type="button" style="background-color:${lbl[i].color};" value="${lbl[i].name}">
+    `;
+  }
+  }else{
+    document.getElementById('labelh4tag').style.display = "none";
+  }
+  return lblStr;
+}
+
+function getmemberName(mem){
+  console.log(mem);
+  var memStr = "";
+  if(mem.length !== 0){
+    document.getElementById('memberh4tag').style.display = "block";
+    for(let i = 0 ; i < mem.length; i++){
+      memStr += `
+      <span>${getInitials(mem[i].name)}</span>`;
+    }
+  }else{
+    document.getElementById('memberh4tag').style.display = "none";
+  }
+  return memStr;
+}
+
+
 function getListId(listId){
 	listId = listId;
 	console.log(listId);
@@ -317,6 +352,7 @@ document.querySelectorAll(".close").forEach((item) => {
   item.addEventListener("click", function () {
     document.querySelector(".bg-modal").style.display = "none";
     document.getElementById('section2').style.overflowX = "auto";
+    // document.getElementById('labelh4tag').style.display = "block";
   });
 });
 

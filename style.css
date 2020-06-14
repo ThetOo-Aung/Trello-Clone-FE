@@ -299,13 +299,17 @@ body {
   border-radius: 10px;
 
 }
-
+.labelParent {
+  display: flex;
+  flex-direction: row;
+}
 .card-labels {
   height: 8px;
   width: 40px;
   border-radius: 30px;
   margin-top: 2px;
   margin-bottom: 5px;
+  margin-right: 10px;
 }
 
 
@@ -531,9 +535,9 @@ body {
   z-index: 3;
   padding: 10px;
   box-shadow: 2px 0px 5px 0px rgba(9,30,66,.25);
-  border: 1px solid transparent;
+  border: 0.5px solid black;
   border-radius: 5px;
-  background-color: whitesmoke;
+  background-color: white;
 }
 
 .row-div {
@@ -543,6 +547,9 @@ body {
   flex-direction: row;
   align-items: center;
   
+}
+.row-div .fa-times {
+  font-size: 18px;
 }
 
 .sm-separator {
@@ -573,13 +580,58 @@ body {
 .card-member p {
   width: 75%;
   text-align: left;
+  color: rgb(39, 39, 39);
+  font-weight: thin;
 }
 .card-member span{
   padding:2px 5px;
-  border: 1px solid rgb(73, 68, 68);
+  border: 1px solid transparent;
   border-radius: 50%;
-  background-color: honeydew;
+  background-color: #46e5eb;
+  color: white;
   flex-shrink: 1;
+}
+.label-member {
+  width: 100%;
+  height: max-content;
+  /* background-color: hotpink; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.label-div {
+  margin-top: 20px;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 14px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.lblEdit {
+  width: 90px;
+  height: 30px;
+  line-height: 30px;
+  border: 0;
+  outline: 0;
+  color: white;
+  margin-right: 3px;
+  border-radius: 7px;
+}
+
+#labelShow{
+  margin-right: 10px;
+}
+
+#memShow span {
+  padding:2px 5px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background-color: #46e5eb;
+  color: white;
 }
 
 /* ================================================================================= */
