@@ -6,8 +6,9 @@ const END_POINT_API = "http://localhost:8080/";
 
 window.onload = function () {
   console.log("DOM is ready");
-
+  
   fetchdata();
+
 };
 
 function fetchdata() {
@@ -16,6 +17,8 @@ function fetchdata() {
     .then((data) => {
       console.log(data);
       document.querySelector(".trello-body").innerHTML = getList(data) + addAnotherList();
+
+      
     })
     .catch(err => {
       console.log(err);
@@ -34,7 +37,7 @@ function addAnotherList() {
                       <input type="text" placeholder="Enter List Title..." id="list-title"></input>
                       <div>
                       <button onclick="addNewList()">Add List</button>
-                      <a href="" onclick="closeAddList()"  style="margin-left:7px"><i class="fas fa-times"></i></a>
+                      <a href="" onclick="closeAddList()" style="margin-left:7px"><i class="fas fa-times"></i></a>
                       </div>
                     </div>
                 </div>
@@ -88,7 +91,7 @@ const getCheckList = (checklists) => {
     for(var i = 0; i< checklists.length; i++){
       
       chklistStr += `
-                <header> <i class="far fa-check-circle"></i> &nbsp;&nbsp;${checklists[i].title}</header>
+                <header> <i class="fas fa-check" style="margin-right:15px"></i>${checklists[i].title}</header>
                 <div class="checklistItem">
                   <input type="checkbox">
                   <label> &nbsp;&nbsp; ${checklists[i].item}</label>
@@ -127,22 +130,46 @@ const getCards = (cards) => {
                 </div>
               </button>
             </div>
+
     `
   } 
   return cardStr;
 
 };
 
+function getCardName(cardTitle){
+  var cardT = `<i class="far fa-credit-card"></i>&nbsp;&thinsp;&thinsp;${cardTitle}`;
+  return cardT;
+}
+function getListName(listTitle){
+
+
+  var listT = `<i class="far fa-credit-card" style="display:none"></i>In List ${listTitle}`;
+  console.log("List title for card is "+ listTitle);
+  return listT;
+}
+
+
+
+function hideInputBtn(id){
+  document.querySelector('.inputbtn'+id).style.display = "none";
+  document.querySelector('.hideBtn'+id).style.display = "none";
+}
+
+
 const getList = (list) => {
   var listStr = "";
   currListNode = list.length;
-  console.log( "Current List Node Number is "+currListNode);
+  console.log( "Current List Node Number is " +currListNode);
   for(var i = 0; i < list.length; i++){
     listStr += `
     <div class="col-div">
       <div class="col-content" onclick="getListId($(this).attr('list-id'))" list-id="${list[i].id}">
-        <p>${list[i].title}</p>
-        
+
+        <input type="text" value="${list[i].title}" onfocus="showInputBtn(${list[i].id})" class="list-update${list[i].id}">
+        <input type="button" value="Save" class="inputbtn${list[i].id}" onclick="updateList(${list[i].id},${list[i].position})">
+        <a onclick="hideInputBtn(${list[i].id})" class="hide hideBtn${list[i].id}"><i class="fas fa-times"></i></a>
+
         <a onclick="showMenu(${list[i].id})" id="idForRect${list[i].id}"><i class="fas fa-ellipsis-h"></i></a>
           <div class="show-menu showmenu${list[i].id}">
             <div class="row-div">
@@ -161,23 +188,66 @@ const getList = (list) => {
             <a href="#">Archive All Cards in This List...</a>
             <div class="sm-separator"></div>
             <a href="#" onclick="deleteList(${list[i].id})">Archive This List...</a>
-            </div>
+          </div>
 
       </div>
 
       
-      ${getCards(list[i].cards)}
+        ${getCards(list[i].cards)}
       
         
           <button class="add-another-card">
             <a href="#"><i class="fas fa-plus"></i>&nbsp; Add another card</a>
             <a href="#"><i class="far fa-clone"></i></a>
           </button>
-      </div> 
-    </div>`
+      
+    </div>
+    `
   }
   return listStr;
 };
+
+
+function showInputBtn(id){
+  var saveBtn = document.querySelector('.inputbtn'+id).style.display = "inline-block";
+  var closeBtn = document.querySelector('.hideBtn'+id).style.display = "inline-block";
+}
+
+
+function updateList(listId,listPosition) {
+    var listTitle = document.querySelector('.list-update'+listId).value;
+    // console.log("Title of the list selected is "+ listTitle);
+    // console.log("===============> List Position is "+ listPosition);    
+
+    fetch(END_POINT_API + "list/" + listId ,{
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        title: listTitle,
+        position: listPosition,
+        status: 1
+      })
+    })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      fetchdata();
+      window.onload();
+    })
+    .catch((err) => {
+      console.log(err);
+      
+    })
+  
+}
+
+
+
+
+
+
 
 
 function showMenu(id) {
@@ -215,13 +285,20 @@ function deleteList(listId) {
 
 function cardClicked(cardId){
   document.querySelector(".bg-modal").style.display = "flex";
+
+  document.getElementById('section2').style.overflowX = "hidden";
+
+  
+
+  
 	fetch(END_POINT_API+"card/"+cardId)
   .then((res)=>  res.json())
   .then((card) => {
       console.log(card);
-
+      document.getElementById('titlelist').innerHTML = getListName(card.list.title);
+      document.getElementById('card-title').innerHTML = getCardName(card.title);
+      
       document.getElementById('checklists').innerHTML = getCheckList(card.checklists);
-
   })
   	.catch(function (err) {
    		console.log(err);
@@ -233,9 +310,14 @@ function getListId(listId){
 	console.log(listId);
 }
 
+
+
+
+
 document.querySelectorAll(".close").forEach((item) => {
   item.addEventListener("click", function () {
     document.querySelector(".bg-modal").style.display = "none";
+    document.getElementById('section2').style.overflowX = "auto";
   });
 });
 

@@ -9,7 +9,7 @@
 
 
   <!-- Fonts -->
-  
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
 
 </head>
 <body>
-  <section class="front-page">
+  <section class="section1">
     <nav class="wrapper">
       <div class="trello-header1">
         <a href=""><i class="fas fa-th-large"></i></i> </a> 
@@ -57,100 +57,23 @@
         <a href=""><i class="fas fa-ellipsis-h"></i> &nbsp; Show Menu</a>
       </div>
     </div>
-
+  </section>
+  
+  <section id="section2">
+    
     
 
-    <div class="trello-body">
-      </div>
-
-
-      
-      
-    
-
-    <!--<div class="col-div">  
-          <div class="col-content">
-            <p>To-Do</p>
-            <a href=""><i class="fas fa-ellipsis-h"></i></a>
-          </div>
-
-          
-          // TO Add list here 
-          
-          <div class="col-lists">
-            <div class="col-list">
-              <span></span>
-              <p>blah blah</p>
-              <div class="col-list-icons">
-                <a href=""><i class="fas fa-bars"></i></a>
-                <a href=""><i class="fas fa-paperclip"></i></a>
-              </div>
-            </div>
-          
-            <div class="col-list">
-              <p>TOA</p>
-              <div class="col-list-icons">
-                <a href=""><i class="fas fa-bars"></i></a>
-                <a href=""><i class="fas fa-paperclip"></i></a>
-              </div>
-            </div>
-          </div>
-          
-         //
-          <button class="add-another-card">
-            <a href=""><i class="fas fa-plus"></i>&nbsp; Add another card</a>
-            <a href=""><i class="far fa-clone"></i></a>
-          </button>
-        </div>
-
-
-        // Another column 
-        <div class="col-div">  
-          <div class="col-content">
-            <p>Doing</p>
-            <a href=""><i class="fas fa-ellipsis-h"></i></a>
-          </div>
-
-          <div class="add-another-card">
-            <a href=""><i class="fas fa-plus"></i>&nbsp; Add another card</a>
-            <a href=""><i class="far fa-clone"></i></a>
-          </div> 
-        </div>
-
-
-        // Another column 
-        <div class="col-div">   
-          <div class="col-content">
-            <p>Done</p>
-            <a href=""><i class="fas fa-ellipsis-h"></i></a>
-          </div>
-          <div class="add-another-card">
-            <a href=""><i class="fas fa-plus"></i>&nbsp; Add another card</a>
-            <a href=""><i class="far fa-clone"></i></a>
-          </div>
-        </div>
-
-
-        // Another column 
-        <div class="col-div to-add-list">  
-          <div class="add-another-list">
-            <a href=""><i class="fas fa-plus"></i>&nbsp; Add another List</a>
-          </div>
-        </div>
-      </div> -->
-
-      
-   
+    <div class="trello-body"></div>
 
 
     <!-- Modal Section -->
-    <div class="bg-modal">
+    <div class="bg-modal" id="modal-height">
       <div class="modal-contents">
         <div class="container">
           <div class="header-desc">
             <div class="container-main-content">
-              <div><i class="far fa-credit-card"></i> &nbsp;&thinsp;Lorem, ipsum.</div>
-              <div><p>in list Done!</p></div>
+              <div id="card-title"></div>
+              <div id="titlelist"></div>
               <div class="modal-description"><i class="fas fa-stream"></i> &nbsp; Description</div>
               <div style="width: 100%;" class="textareahidden"><textarea name="" id="" cols="45" rows="3" placeholder="Type the description for details"></textarea>
                 <div class="small">
@@ -160,32 +83,11 @@
               </div>
               <div class="small1">
                 <span><i class="fas fa-list-ul"></i> &nbsp; Activity</span>
-                <a href="">Show Details</a>
+                <a href="" style="margin-right:15px;">Show Details</a>
               </div>
             </div>
               <div id="checklists">
               </div>
-
-
-
-              <!-- <div class="show-menu">
-                <div class="row-div">
-                    <p>List Actions</p>
-                    <i class="fas fa-times"></i>
-                </div>
-                <div class="sm-separator"></div>
-                <a href="#">Add Card...</a>
-                <a href="#">Copy List...</a>
-                <a href="#">Move List...</a>
-                <a href="#">Watch</a>
-                <div class="sm-separator"></div>
-                <a href="#">Sort By...</a>
-                <div class="sm-separator"></div>
-                <a href="#">Move All Cards in This List...</a>
-                <a href="#">Archive All Cards in This List...</a>
-                <div class="sm-separator"></div>
-                <a href="#">Archive This List...</a>
-            </div> -->
           </div>
 
           
@@ -199,31 +101,32 @@
 
 
             <div class="sidebar1">
-              <div class="sidebar-header"><p>Suggested</p></div>
-              <a href="" class="sidebar-label"><i class="far fa-user"></i> &nbsp; Join</a>
-              <a href="" class="sidebar-label"><i class="far fa-user"></i> &nbsp; Join</a>
-              <a href="" class="sidebar-label"><i class="far fa-user"></i> &nbsp; Join</a>
-              <a href="" class="sidebar-label"><i class="far fa-user"></i> &nbsp; Join</a>
-              <a href="" class="sidebar-label"><i class="far fa-user"></i> &nbsp; Join</a>
-              <a href="" class="sidebar-label"><i class="far fa-user"></i> &nbsp; Join</a>
+              <div class="sidebar-header"><p>Added to Card</p></div>
+              <a href="" class="sidebar-label"><i class="far fa-user"></i> &nbsp; Members</a>
+              <a href="" class="sidebar-label"><i class="fas fa-tag"></i> &nbsp; Label</a>
+              <a href="" class="sidebar-label"><i class="fas fa-check-square"></i> &nbsp; Checklist</a>
+              <a href="" class="sidebar-label"><i class="far fa-clock"></i> &nbsp; Due Date</a>
+              <a href="" class="sidebar-label"><i class="fas fa-paperclip"></i> &nbsp; Attachment</a>
+              <a href="" class="sidebar-label"><i class="fas fa-window-maximize"></i> &nbsp; Cover</a>
+            </div>
+
+
+            <div class="sidebar1">
+              <div class="sidebar-header"><p>Get Power-Ups</p></div>
+              <a href="" class="sidebar-label"><i class="fab fa-github" style="font-size:14px"></i> &nbsp; Github</a>
+              <a href="" class="sidebar-label" style="font-size: small;">Get More PowerUps.</a>
             </div>
 
 
             <div class="sidebar1">
               <div class="sidebar-header"><p>Suggested</p></div>
-              <a href="" class="sidebar-label"><i class="far fa-user"></i> &nbsp; Join</a>
-            </div>
-
-
-            <div class="sidebar1">
-              <div class="sidebar-header"><p>Suggested</p></div>
-              <a href="" class="sidebar-label"><i class="far fa-user"></i> &nbsp; Join</a>
-              <a href="" class="sidebar-label"><i class="far fa-user"></i> &nbsp; Join</a>
-              <a href="" class="sidebar-label"><i class="far fa-user"></i> &nbsp; Join</a>
-              <a href="" class="sidebar-label"><i class="far fa-user"></i> &nbsp; Join</a>
+              <a href="" class="sidebar-label"><i class="fas fa-arrow-right"></i> &nbsp; Move</a>
+              <a href="" class="sidebar-label"><i class="far fa-copy"></i> &nbsp; Copy</a>
+              <a href="" class="sidebar-label"><i class="far fa-window-restore"></i> &nbsp; Make Template</a>
+              <a href="" class="sidebar-label"><i class="far fa-eye"></i> &nbsp; Watch</a>
               <div class="separator"></div>
-              <a href="" class="sidebar-label"><i class="far fa-user"></i> &nbsp; Join</a>
-              <a href="" class="sidebar-label"><i class="far fa-user"></i> &nbsp; Join</a>
+              <a href="" class="sidebar-label"><i class="fas fa-archive"></i> &nbsp; Archieve</a>
+              <a href="" class="sidebar-label"><i class="fas fa-share-alt"></i> &nbsp; Share</a>
             </div>
  
         </div>
